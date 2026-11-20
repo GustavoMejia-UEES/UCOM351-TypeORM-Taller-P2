@@ -1,0 +1,21 @@
+services:
+  album-postgres:
+    image: postgres:17-alpine
+    container_name: album-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-album}
+      POSTGRES_USER: ${DB_USER:-album_user}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-album_local}
+    ports:
+      - "${DB_PORT:-5433}:5432"
+    volumes:
+      - album-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-album_user} -d ${DB_NAME:-album}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  album-postgres-data:
