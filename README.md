@@ -34,9 +34,11 @@ docker compose up -d
 npm run start:dev
 ```
 
-La API escucha en `http://localhost:3000/api`. Las rutas son `GET /api/fotos`, `GET /api/fotos/:id`, `POST /api/fotos`, `PATCH /api/fotos/:id` y `DELETE /api/fotos/:id`.
+La API escucha en `http://localhost:3100/api` con la configuración de ejemplo (puedes cambiarlo con `PORT`). Las rutas para fotos son `GET /api/fotos`, `GET /api/fotos/:id`, `POST /api/fotos`, `PATCH /api/fotos/:id` y `DELETE /api/fotos/:id`. Para filtrar/paginar la lista, puedes usar, por ejemplo, `GET /api/fotos?min=3&max=5&q=foto&etiqueta=playa&orden=DESC&page=1&limit=5`. La respuesta incluye `data`, `total`, `page` y `limit`; cada foto incluye su álbum y sus etiquetas. `etiqueta` busca por texto y `orden` acepta `ASC` o `DESC` para calificación. Para álbumes, usa los mismos métodos bajo `/api/albumes`.
 
-PostgreSQL corre en el servicio Docker `album-postgres`, publica el puerto `5433` y crea la base `album`. TypeORM crea/actualiza la tabla `fotos` automáticamente en este entorno de práctica (`DB_SYNCHRONIZE=true`). Ejecuta `npm run seed` para insertar fotos de prueba; el seed omite títulos que ya existen.
+Una foto puede pertenecer a un álbum (`albumId`, nullable, `ON DELETE SET NULL`) y relacionarse con varias etiquetas mediante `fotos_etiquetas`. Cada etiqueta puede usarse en varias fotos.
+
+PostgreSQL corre en el servicio Docker `album-postgres`, publica el puerto `5433` y crea la base `album`. TypeORM crea/actualiza las tablas automáticamente en este entorno de práctica (`DB_SYNCHRONIZE=true`). Ejecuta `npm run seed` para vaciar y recrear los datos de práctica: 3 álbumes, 6 etiquetas y 20 fotos con relaciones aleatorias. El seed reinicia los IDs; úsalo solo con la base de práctica.
 
 Para comprobar el contenedor: `docker compose ps`. Para detenerlo: `docker compose down` (los datos se conservan en el volumen `album-postgres-data`). Para borrar también los datos: `docker compose down -v`.
 

@@ -1,48 +1,62 @@
 import { NestFactory } from '@nestjs/core';
+import { DataSource } from 'typeorm';
 import { AppModule } from './app.module.js';
-import { FotosService } from './fotos/fotos.service.js';
+import { Album } from './albumes/entities/album.entity.js';
+import { Etiqueta } from './fotos/entities/etiqueta.entity.js';
 import { Foto } from './fotos/entities/foto.entity.js';
 
-const fotosDePrueba: Partial<Foto>[] = [
-  {
-    titulo: 'Atardecer en el malecón',
-    descripcion: 'Atardecer junto al río Guayas.',
-    calificacion: 4.8,
-    ruta: '/fotos/atardecer-malecon.jpg',
-  },
-  {
-    titulo: 'Centro histórico',
-    descripcion: 'Vista de una calle del centro histórico.',
-    calificacion: 4.5,
-    ruta: '/fotos/centro-historico.jpg',
-  },
-  {
-    titulo: 'Playa al amanecer',
-    descripcion: 'La playa al inicio de la mañana.',
-    calificacion: 4.9,
-    ruta: '/fotos/playa-amanecer.jpg',
-  },
-];
+const alAzar = <T>(elementos: T[]): T =>
+  elementos[Math.floor(Math.random() * elementos.length)]!;
 
 async function seed() {
   const app = await NestFactory.createApplicationContext(AppModule);
 
   try {
-    const fotosService = app.get(FotosService);
-    const titulosExistentes = new Set(
-      (await fotosService.findAll()).map((foto) => foto.titulo),
+    const db = app.get(DataSource);
+    const albumesRepo = db.getRepository(Album);
+    const etiquetasRepo = db.getRepository(Etiqueta);
+    const fotosRepo = db.getRepository(Foto);
+
+    await db.query(
+      'TRUNCATE TABLE fotos_etiquetas, fotos, etiquetas, albumes RESTART IDENTITY CASCADE',
     );
-    let insertadas = 0;
 
-    for (const datos of fotosDePrueba) {
-      if (!datos.titulo || titulosExistentes.has(datos.titulo)) continue;
+    const albumes = await albumesRepo.save(
+      ['Viajes', 'Guayaquil', 'Naturaleza'].map((nombre) =>
+        albumesRepo.create({ nombre }),
+      ),
+    );
 
-      await fotosService.create(datos);
-      titulosExistentes.add(datos.titulo);
-      insertadas += 1;
-    }
+    const etiquetas = await etiquetasRepo.save(
+      ['playa', 'ciudad', 'noche', 'cielo', 'montaña', 'rio'].map((nombre) =>
+        etiquetasRepo.create({ nombre }),
+      ),
+    );
 
-    console.log(`Seed terminado: ${insertadas} foto(s) insertada(s).`);
+    const fotos = Array.from({ length: 20 }, (_, indice) => {
+      const album = alAzar(albumes);
+      const cantidadEtiquetas = Math.floor(Math.random() * 3) + 1;
+      const etiquetasDeFoto = [
+        ...new Set(
+          Array.from({ length: cantidadEtiquetas }, () => alAzar(etiquetas)),
+        ),
+      ];
+
+      return fotosRepo.create({
+        titulo: `Foto ${indice + 1}`,
+        descripcion: `Foto de prueba para el álbum ${album.nombre}.`,
+        calificacion: Math.round(Math.random() * 50) / 10,
+        ruta: `https://picsum.photos/id/${(indice + 1) * 10}/600/400`,
+        album,
+        etiquetas: etiquetasDeFoto,
+      });
+    });
+
+    await fotosRepo.save(fotos);
+
+    console.log(
+      `Seed completo: ${albumes.length} álbumes, ${etiquetas.length} etiquetas y ${fotos.length} fotos insertadas.`,
+    );
   } finally {
     await app.close();
   }
