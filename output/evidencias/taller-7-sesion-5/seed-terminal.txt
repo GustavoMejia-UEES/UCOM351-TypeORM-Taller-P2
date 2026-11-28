@@ -1,0 +1,16 @@
+
+> album-api@0.0.1 seed
+> nest start --entryFile seed
+
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [NestFactory] Starting Nest application...
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [InstanceLoader] ConfigLoadedModule dependencies initialized +42ms
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [InstanceLoader] TypeOrmModule dependencies initialized +0ms
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [InstanceLoader] ConfigHostModule dependencies initialized +0ms
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [InstanceLoader] AppModule dependencies initialized +2ms
+[Nest] 3748  - 27/11/2026, 11:06:43 p. m.     LOG [InstanceLoader] ConfigModule dependencies initialized +0ms
+[Nest] 3748  - 27/11/2026, 11:06:44 p. m.     LOG [InstanceLoader] TypeOrmCoreModule dependencies initialized +333ms
+[Nest] 3748  - 27/11/2026, 11:06:44 p. m.     LOG [InstanceLoader] TypeOrmModule dependencies initialized +0ms
+[Nest] 3748  - 27/11/2026, 11:06:44 p. m.     LOG [InstanceLoader] TypeOrmModule dependencies initialized +0ms
+[Nest] 3748  - 27/11/2026, 11:06:44 p. m.     LOG [InstanceLoader] FotosModule dependencies initialized +2ms
+[Nest] 3748  - 27/11/2026, 11:06:44 p. m.     LOG [InstanceLoader] AlbumesModule dependencies initialized +0ms
+Seed completo: 3 álbumes, 6 etiquetas y 20 fotos insertadas.

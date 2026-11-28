@@ -1,42 +1,28 @@
 import {
   Body,
   Controller,
-  DefaultValuePipe,
   Delete,
   Get,
+  HttpCode,
+  HttpStatus,
   Patch,
   Param,
-  ParseFloatPipe,
   ParseIntPipe,
   Post,
   Query,
 } from '@nestjs/common';
 import { FotosService } from './fotos.service.js';
-import { Foto } from './entities/foto.entity.js';
+import { CreateFotoDto } from './dto/create-foto.dto.js';
+import { UpdateFotoDto } from './dto/update-foto.dto.js';
+import { QueryFotosDto } from './dto/query-fotos.dto.js';
 
 @Controller('fotos')
 export class FotosController {
   constructor(private readonly fotosService: FotosService) {}
 
   @Get()
-  findAll(
-    @Query('min', new DefaultValuePipe(0), ParseFloatPipe) min: number,
-    @Query('max', new DefaultValuePipe(5), ParseFloatPipe) max: number,
-    @Query('q') q: string | undefined,
-    @Query('etiqueta') etiqueta: string | undefined,
-    @Query('orden', new DefaultValuePipe('DESC')) orden: string,
-    @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,
-    @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
-  ) {
-    return this.fotosService.findAll({
-      min,
-      max,
-      q,
-      etiqueta,
-      orden,
-      page,
-      limit,
-    });
+  findAll(@Query() filtro: QueryFotosDto) {
+    return this.fotosService.findAll(filtro);
   }
 
   @Get(':id')
@@ -45,19 +31,17 @@ export class FotosController {
   }
 
   @Post()
-  create(@Body() datos: Partial<Foto>) {
-    return this.fotosService.create(datos);
+  create(@Body() dto: CreateFotoDto) {
+    return this.fotosService.create(dto);
   }
 
   @Patch(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() datos: Partial<Foto>,
-  ) {
-    return this.fotosService.update(id, datos);
+  update(@Param('id', ParseIntPipe) id: number, @Body() dto: UpdateFotoDto) {
+    return this.fotosService.update(id, dto);
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.fotosService.remove(id);
   }

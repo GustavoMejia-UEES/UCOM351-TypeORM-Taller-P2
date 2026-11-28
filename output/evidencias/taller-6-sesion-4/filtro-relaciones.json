@@ -1,0 +1,107 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "titulo": "Foto 2",
+      "descripcion": "Foto de prueba para el álbum Guayaquil.",
+      "calificacion": 1.6,
+      "ruta": "https://picsum.photos/id/20/600/400",
+      "fotografo": null,
+      "album": {
+        "id": 2,
+        "nombre": "Guayaquil"
+      },
+      "etiquetas": [
+        {
+          "id": 1,
+          "texto": "playa"
+        }
+      ],
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 7,
+      "titulo": "Foto 7",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 1.6,
+      "ruta": "https://picsum.photos/id/70/600/400",
+      "fotografo": null,
+      "album": {
+        "id": 1,
+        "nombre": "Viajes"
+      },
+      "etiquetas": [
+        {
+          "id": 1,
+          "texto": "playa"
+        }
+      ],
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 8,
+      "titulo": "Foto 8",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 1.8,
+      "ruta": "https://picsum.photos/id/80/600/400",
+      "fotografo": null,
+      "album": {
+        "id": 1,
+        "nombre": "Viajes"
+      },
+      "etiquetas": [
+        {
+          "id": 1,
+          "texto": "playa"
+        }
+      ],
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 9,
+      "titulo": "Foto 9",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 3.1,
+      "ruta": "https://picsum.photos/id/90/600/400",
+      "fotografo": null,
+      "album": {
+        "id": 1,
+        "nombre": "Viajes"
+      },
+      "etiquetas": [
+        {
+          "id": 1,
+          "texto": "playa"
+        }
+      ],
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 1,
+      "titulo": "Foto 1",
+      "descripcion": "Foto de prueba para el álbum Guayaquil.",
+      "calificacion": 4.7,
+      "ruta": "https://picsum.photos/id/10/600/400",
+      "fotografo": null,
+      "album": {
+        "id": 2,
+        "nombre": "Guayaquil"
+      },
+      "etiquetas": [
+        {
+          "id": 1,
+          "texto": "playa"
+        }
+      ],
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    }
+  ],
+  "total": 5,
+  "page": 1,
+  "limit": 5
+}

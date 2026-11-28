@@ -1,0 +1,86 @@
+{
+  "id": 1,
+  "nombre": "Viajes",
+  "fotos": [
+    {
+      "id": 4,
+      "titulo": "Foto 4",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 3.1,
+      "ruta": "https://picsum.photos/id/40/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 7,
+      "titulo": "Foto 7",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 1.6,
+      "ruta": "https://picsum.photos/id/70/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 8,
+      "titulo": "Foto 8",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 1.8,
+      "ruta": "https://picsum.photos/id/80/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 9,
+      "titulo": "Foto 9",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 3.1,
+      "ruta": "https://picsum.photos/id/90/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 12,
+      "titulo": "Foto 12",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 2.4,
+      "ruta": "https://picsum.photos/id/120/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 13,
+      "titulo": "Foto 13",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 1.5,
+      "ruta": "https://picsum.photos/id/130/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 18,
+      "titulo": "Foto 18",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 3.1,
+      "ruta": "https://picsum.photos/id/180/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    },
+    {
+      "id": 19,
+      "titulo": "Foto 19",
+      "descripcion": "Foto de prueba para el álbum Viajes.",
+      "calificacion": 0.6,
+      "ruta": "https://picsum.photos/id/190/600/400",
+      "fotografo": null,
+      "creadoEn": "2026-11-28T09:06:44.315Z",
+      "actualizadoEn": "2026-11-28T09:06:44.315Z"
+    }
+  ]
+}

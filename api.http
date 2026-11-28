@@ -1,0 +1,56 @@
+@api = http://localhost:3100/api
+
+### Listar y filtrar
+GET {{api}}/fotos?min=3&max=5&q=foto&etiqueta=playa&orden=asc&page=1&limit=5
+
+### Consultar una foto con sus relaciones
+GET {{api}}/fotos/1
+
+### Crear una foto con álbum y etiquetas
+POST {{api}}/fotos
+Content-Type: application/json
+
+{
+  "titulo": "Cerro Santa Ana",
+  "descripcion": "Vista de Guayaquil",
+  "calificacion": 4.8,
+  "ruta": "https://picsum.photos/id/1/600/400",
+  "albumId": 2,
+  "etiquetas": ["Ciudad", "faro"]
+}
+
+### Validación: el DTO rechaza datos inválidos y propiedades extra
+POST {{api}}/fotos
+Content-Type: application/json
+
+{
+  "titulo": "",
+  "calificacion": 9,
+  "ruta": "no-url",
+  "hack": 1
+}
+
+### Validación: el límite máximo de página es 50
+GET {{api}}/fotos?limit=999
+
+### Error de FK: el álbum debe existir
+POST {{api}}/fotos
+Content-Type: application/json
+
+{
+  "titulo": "Álbum inexistente",
+  "calificacion": 3,
+  "ruta": "https://picsum.photos/id/2/600/400",
+  "albumId": 999999
+}
+
+### Actualización parcial
+PATCH {{api}}/fotos/1
+Content-Type: application/json
+
+{
+  "calificacion": 2.5
+}
+
+### Eliminar (204 sin cuerpo)
+DELETE {{api}}/fotos/1

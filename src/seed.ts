@@ -28,8 +28,8 @@ async function seed() {
     );
 
     const etiquetas = await etiquetasRepo.save(
-      ['playa', 'ciudad', 'noche', 'cielo', 'montaña', 'rio'].map((nombre) =>
-        etiquetasRepo.create({ nombre }),
+      ['playa', 'ciudad', 'noche', 'cielo', 'montaña', 'rio'].map((texto) =>
+        etiquetasRepo.create({ texto }),
       ),
     );
 

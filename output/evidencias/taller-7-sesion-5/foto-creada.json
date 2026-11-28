@@ -1,0 +1,24 @@
+{
+  "id": 21,
+  "titulo": "Cerro Santa Ana",
+  "descripcion": "Vista de Guayaquil",
+  "calificacion": 4.8,
+  "ruta": "https://picsum.photos/id/1/600/400",
+  "fotografo": null,
+  "album": {
+    "id": 2,
+    "nombre": "Guayaquil"
+  },
+  "etiquetas": [
+    {
+      "id": 2,
+      "texto": "ciudad"
+    },
+    {
+      "id": 7,
+      "texto": "faro"
+    }
+  ],
+  "creadoEn": "2026-11-28T09:06:25.028Z",
+  "actualizadoEn": "2026-11-28T09:06:25.028Z"
+}

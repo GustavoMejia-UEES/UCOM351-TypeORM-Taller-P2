@@ -6,7 +6,7 @@ export class Album {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column({ length: 100 })
+  @Column({ length: 80 })
   nombre!: string;
 
   @OneToMany(() => Foto, (foto) => foto.album)

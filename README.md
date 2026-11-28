@@ -36,6 +36,12 @@ npm run start:dev
 
 La API escucha en `http://localhost:3100/api` con la configuración de ejemplo (puedes cambiarlo con `PORT`). Las rutas para fotos son `GET /api/fotos`, `GET /api/fotos/:id`, `POST /api/fotos`, `PATCH /api/fotos/:id` y `DELETE /api/fotos/:id`. Para filtrar/paginar la lista, puedes usar, por ejemplo, `GET /api/fotos?min=3&max=5&q=foto&etiqueta=playa&orden=DESC&page=1&limit=5`. La respuesta incluye `data`, `total`, `page` y `limit`; cada foto incluye su álbum y sus etiquetas. `etiqueta` busca por texto y `orden` acepta `ASC` o `DESC` para calificación. Para álbumes, usa los mismos métodos bajo `/api/albumes`.
 
+## Talleres de backend
+
+- **Sesión 4 / Taller 6:** relaciones álbum-foto y foto-etiqueta, seed relacionado, filtros, paginación y `GET /api/albumes/:id/fotos`. La implementación está en la rama `taller-parte-2`.
+- **Sesión 5 / Taller 7:** DTOs, validación global, CRUD de fotos con relaciones y filtro de errores PostgreSQL. Esta rama agrega la sesión 5 como commit posterior, sin cambiar `main`.
+- `output/evidencias/main-publicado-19nov/` documenta el commit histórico `main`; `output/evidencias/taller-6-sesion-4/` y `output/evidencias/taller-7-sesion-5/` contienen las evidencias de cada sesión.
+
 Una foto puede pertenecer a un álbum (`albumId`, nullable, `ON DELETE SET NULL`) y relacionarse con varias etiquetas mediante `fotos_etiquetas`. Cada etiqueta puede usarse en varias fotos.
 
 PostgreSQL corre en el servicio Docker `album-postgres`, publica el puerto `5433` y crea la base `album`. TypeORM crea/actualiza las tablas automáticamente en este entorno de práctica (`DB_SYNCHRONIZE=true`). Ejecuta `npm run seed` para vaciar y recrear los datos de práctica: 3 álbumes, 6 etiquetas y 20 fotos con relaciones aleatorias. El seed reinicia los IDs; úsalo solo con la base de práctica.

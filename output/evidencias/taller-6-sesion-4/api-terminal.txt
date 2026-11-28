@@ -1,0 +1,5 @@
+GET filtros y relaciones: HTTP 200, total=5, página=5, calificación ASC=1.6, 1.6, 1.8, 3.1, 4.7
+etiqueta texto coincide sin mayúsculas=True; álbum incluido=True
+ejemplo: Foto 2, calificación=1.6, álbum=Guayaquil, etiquetas=playa
+GET /albumes/1/fotos: HTTP 200, álbum=Viajes, fotos=8
+GET min=abc: HTTP 400, {"message":["min must not be greater than 5","min must not be less than 0","min must be a number conforming to the specified constraints"],"error":"Bad Request","statusCode":400}

@@ -1,0 +1,32 @@
+PS> docker exec album-postgres psql -U album_user -d album
+ albumes | etiquetas | fotos | fotos_etiquetas 
+---------+-----------+-------+-----------------
+       3 |         6 |    20 |              38
+(1 row)
+
+
+   album    | fotos 
+------------+-------
+ Viajes     |     8
+ Guayaquil  |     9
+ Naturaleza |     3
+(3 rows)
+
+
+ etiqueta | relaciones 
+----------+------------
+ playa    |          5
+ ciudad   |          7
+ noche    |          3
+ cielo    |         10
+ montaña  |          7
+ rio      |          6
+(6 rows)
+
+
+ relaciones_huerfanas 
+----------------------
+                    0
+(1 row)
+
+

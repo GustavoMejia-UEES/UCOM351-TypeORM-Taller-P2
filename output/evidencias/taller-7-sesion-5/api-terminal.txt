@@ -1,0 +1,9 @@
+GET filtro etiqueta/relaciones: HTTP 200, total=5, resultados=5, orden ASC=True, etiqueta texto=True, álbum=True
+GET etiqueta=playa&orden=DESC: HTTP 200, calificaciones=4.4, 4.1, 4.1, 1.7, 1.0, orden DESC=True
+GET limit=999: HTTP 400, {"message":["limit must not be greater than 50"],"error":"Bad Request","statusCode":400}
+GET /albumes/1/fotos: HTTP 200, álbum=Viajes, fotos=6
+POST foto con albumId y etiquetas: HTTP 201, id=21, álbum=Guayaquil, etiquetas=ciudad, faro
+POST campos inválidos y propiedad extra: HTTP 400, {"message":["property hack should not exist","titulo should not be empty","calificacion must not be greater than 5","ruta must be a URL address"],"error":"Bad Request","statusCode":400}
+POST albumId inexistente: HTTP 400, {"statusCode":400,"message":"Referencia a un registro inexistente","detalle":"Key (albumId)=(999999) is not present in table \"albumes\"."}
+PATCH solo calificacion: HTTP 200, titulo preservado=Cerro Santa Ana, calificacion=2.5
+DELETE foto: HTTP 204, cuerpo vacío=True
